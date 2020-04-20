@@ -11,43 +11,43 @@
 function anagrams(stringA, stringB) {
 
 //  Solution #1
-//  const aCharMap = buildCharMap(stringA)
-//  const bCharMap = buildCharMap(stringB)
+ const aCharMap = buildCharMap(stringA)
+ const bCharMap = buildCharMap(stringB)
 
-//  if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
-//      return false
-//  }
+ if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
+     return false
+ }
 
-//  for (let char in aCharMap) {
-//      if (aCharMap[char] !== bCharMap[char]) {
-//          return false
-//      }
-//  }
+ for (let char in aCharMap) {
+     if (aCharMap[char] !== bCharMap[char]) {
+         return false
+     }
+ }
 
-//  return true
+ return true
 
 
 // Solution #2
 
-    return cleanString(stringA) === cleanString(stringB)
+    // return cleanString(stringA) === cleanString(stringB)
 }
 
 // Helper function to Solution #1
-// function buildCharMap(str) {
+function buildCharMap(str) {
 
-//     const charMap = {}
+    const charMap = {}
 
-//     for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
-//         charMap[char] = charMap[char] + 1 || 1
-//     }
+    for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
+        charMap[char] = charMap[char] + 1 || 1
+    }
 
-//     return charMap
-// }
+    return charMap
+}
 
 // Helper function to Solution #2
-function cleanString(str) {
-   return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
+// function cleanString(str) {
+//    return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
     
-}
+// }
 
 module.exports = anagrams;

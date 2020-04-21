@@ -34,7 +34,17 @@ function reverse(str) {
 
     // --- Solution with for reduce(): 
     
-    return str.split('').reduce((reversed, character) => reversed = character + reversed, '')
+    // return str.split('').reduce((reversed, character) => reversed = character + reversed, '')
+
+    // Solution with for loop and array not using reverse()
+    const arr = str.split('')
+    let result = []
+    
+    for (let element of arr) {
+        result.unshift(element)
+    }
+
+    return result.join('')
 }
 
 module.exports = reverse;

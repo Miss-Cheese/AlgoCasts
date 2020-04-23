@@ -8,6 +8,27 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib(n) {
+// first dab at the solution with while loop
+//     let fibArray = [0, 1]
+
+//     while (fibArray.length <= n) {
+//         let nextNumber = fibArray[fibArray.length - 1] + fibArray[fibArray.length - 2]
+//         fibArray.push(nextNumber)
+//     }
+
+//    return fibArray[n]
+
+// Solution with for loop
+    const results = [0, 1]
+
+    for (let i = 2; i <= n; i++) {
+        const a = results[i - 1]
+        const b = results[i - 2]
+        results.push(a + b)
+    }
+
+    return results[n]
+}
 
 module.exports = fib;

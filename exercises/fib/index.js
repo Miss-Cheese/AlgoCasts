@@ -8,7 +8,7 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {
+// function fib(n) {
 // first dab at the solution with while loop
 //     let fibArray = [0, 1]
 
@@ -20,24 +20,41 @@ function fib(n) {
 //    return fibArray[n]
 
 // Solution with for loop
-    // const results = [0, 1]
+//     const results = [0, 1]
 
-    // for (let i = 2; i <= n; i++) {
-    //     const a = results[i - 1]
-    //     const b = results[i - 2]
-    //     results.push(a + b)
-    // }
+//     for (let i = 2; i <= n; i++) {
+//         const a = results[i - 1]
+//         const b = results[i - 2]
+//         results.push(a + b)
+//     }
+//     return results[n]
+// }
 
-    // return results[n]
+// Solution with recursion & memoization
+function momoize(fn) {
+    const cache = {}
 
+    return function(...args) {
+        if (cache[args]) {
+            return cache[args]
+        } 
 
-// Solution with recursion
- 
+        const result = fn.apply(this, args)
+        cache[args] = result
+
+        return result
+    }
+}
+
+function fib(n) {
     if (n < 2) {
         return n
     }
 
     return fib(n - 1) + fib(n - 2)
 }
+
+
+fib = momoize(fib)
 
 module.exports = fib;

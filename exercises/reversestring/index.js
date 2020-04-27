@@ -48,3 +48,15 @@ function reverse(str) {
 }
 
 module.exports = reverse;
+
+function reverseString (string) {
+    // return string.split('').reverse().join('')
+    
+    const reversed = ''
+
+    for (let character of string) {
+        reversed = character + reversed
+    }
+
+    return reversed
+}
